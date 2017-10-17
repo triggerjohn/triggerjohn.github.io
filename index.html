@@ -25,20 +25,41 @@
     <meta name="twitter:image:src" content="">
 
     <link rel="stylesheet" type="text/css" href="bundle.css">
-    <script type="text/javascript" src="three.min.js"></script>
-    <script type="text/javascript" src="stats.min.js"></script>
-    <script type="text/javascript" src="threeAr.js"></script>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.12.3/dist/aframe-extras.min.js"></script>
     <!-- include ar.js for A-Frame -->
-    
-   
+    <script src="./ar.js"></script>
+    <script src="./material-displacement.js"></script>
 </head>
 <body style='margin : 0px; overflow: hidden;'>
     <div id="app">
-       <div id="container">
-       
-        </div>
+        <!-- route outlet -->
+        <!-- component matched by the route will render here -->
+        <a-scene embedded artoolkit='sourceType: webcam;' embedded arjs vr-mode-ui="enabled: false">
+
+            <!-- Assets for Shader Demo -->
+            <!--<a-assets>
+                <a-asset-item id="fox-obj" src="./assets/3d/fox-obj/low-poly-fox-by-pixelmannen.obj"></a-asset-item>
+                <a-asset-item id="fox-mtl" src="./assets/3d/fox-obj/low-poly-fox-by-pixelmannen.mtl"></a-asset-item>
+            </a-assets>
+            -->
+
+            <!-- Assets for Anim Demo -->
+            <a-assets>
+                <a-asset-item id="fox" src="./assets/3d/fox-gltf-new/fox.gltf"></a-asset-item>
+            </a-assets>
+
+            <!-- Entity for Shader Demo -->
+            <!--<a-entity v-if="tracking" shader-updater obj-model="obj: #fox-obj"scale=".01 .01 .01"  position="0 0 0" material="shader: material-grid-glitch; color: 0xff0000"></a-entity>-->
+
+            <!-- Entity for Anim Demo -->
+            <a-entity v-if="tracking" gltf-model="#fox" scale="0.5 0.5 0.5" position="0 0 " animation-mixer="clip: *" loop="pingpong"></a-entity>
+
+             <!-- define a camera which will move according to the marker position -->
+            <a-marker-camera preset='customMarker'></a-marker-camera>
+        </a-scene>
     </div>
-    <script type="text/javascript" src="arInstructions.js"></script>
+    <script type="text/javascript" src="bundle.js"></script>
 </body>
 
 </html>

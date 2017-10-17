@@ -87,8 +87,6 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 			this._initialize();
 
 		}
-		artoolkit.setPattRatio(this.id, 0.1);
-        console.log(artoolkit.getPattRatio(this.id));
 	};
 
 	/**
@@ -239,30 +237,6 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 		if (this._bwpointer) {
 			this.debugDraw();
 		}
-		if(window.store) {
-            window.store.default.commit('setTarget', {target: visible});
-            if(visible){
-                window.store.default.commit('incrementThresholdCount');
-
-                //if(thresholdCount)
-                if(window.store.default.state.thresholdCount>20){
-                    window.store.default.commit('resetExtendedTrackingThresholdCount');
-                    window.store.default.commit('setTracking', {tracking: visible.inCurrent});
-                }else{
-                    window.store.default.commit('setTracking', {tracking: false});
-                }
-            }else{
-                //console.log(visible);
-                if(window.store.default.state.extendedTrackingThresholdCount>=30){
-                    window.store.default.commit('resetThresholdCount');
-                    window.store.default.commit('setTracking', {tracking: false});
-                }else{
-                    window.store.default.commit('incrementExtendedTrackingThresholdCount');
-                    window.store.default.commit('setTracking', {tracking: true});
-                }
-
-            }
-        }
 	};
 
 	/**
@@ -5631,12 +5605,12 @@ ARjs.Profile.prototype.reset = function () {
 	}
 
 	this.contextParameters = {
-		cameraParametersUrl: './assets/data/camera_para.dat',
+		cameraParametersUrl: THREEx.ArToolkitContext.baseURL + '../data/data/camera_para.dat',
 		detectionMode: 'mono',
 	}
 	this.defaultMarkerParameters = {
 		type : 'pattern',
-		patternUrl : './assets/data/patt.hiro',
+		patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro',
 		changeMatrixMode: 'modelViewMatrix',
 	}
 	return this
