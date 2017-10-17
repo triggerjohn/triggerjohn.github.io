@@ -87,7 +87,7 @@ var Qb=[Ik,Zh,_h,Qj,Qi,Pi,Ri,Ag,sg,qg,rg,yg,kh,jh,Oi,Mj];var Rb=[Jk,ki,ji,gi];va
 			this._initialize();
 
 		}
-		artoolkit.setPattRatio(this.id, 0.1);
+		artoolkit.setPattRatio(this.id, 0.5);
         console.log(artoolkit.getPattRatio(this.id));
 	};
 

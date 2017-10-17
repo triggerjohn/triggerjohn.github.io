@@ -44,7 +44,16 @@ function init(){
     }));
     scene.add(mesh);
 
+    var loader = new THREE.GLTFLoader();
 
+    loader.load( './assets/3d/fox-gltf-new/fox.gltf', function ( gltf ) {
+    scene.add( gltf.scene );
+
+        gltf.animations; // Array<THREE.AnimationClip>
+        gltf.scene;      // THREE.Scene
+        gltf.scenes;     // Array<THREE.Scene>
+        gltf.cameras;    // Array<THREE.Camera>
+    } );
 
 
 
