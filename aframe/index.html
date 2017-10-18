@@ -32,7 +32,7 @@
     <script src="./material-displacement.js"></script>
 </head>
 <body style='margin : 0px; overflow: hidden;'>
-    <div id="app">
+    <div id="app" v-bind:class="{ tracking: tracking, notTracking: !tracking }">
         <!-- route outlet -->
         <!-- component matched by the route will render here -->
         <a-scene embedded artoolkit='sourceType: webcam;' embedded arjs vr-mode-ui="enabled: false">
@@ -53,7 +53,7 @@
             <!--<a-entity v-if="tracking" shader-updater obj-model="obj: #fox-obj"scale=".01 .01 .01"  position="0 0 0" material="shader: material-grid-glitch; color: 0xff0000"></a-entity>-->
 
             <!-- Entity for Anim Demo -->
-            <a-entity v-if="tracking" gltf-model="#fox" scale="0.5 0.25 0.5" position="0 0 0" animation-mixer="clip: *" loop="pingpong"></a-entity>
+            <a-entity gltf-model="#fox" scale="0.5 0.25 0.5" position="0 0 0" animation-mixer="clip: *"></a-entity>
 
              <!-- define a camera which will move according to the marker position -->
             <a-marker-camera preset='customMarker'></a-marker-camera>
