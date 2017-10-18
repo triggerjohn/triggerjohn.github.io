@@ -88,7 +88,7 @@ var asm=(function(global,env,buffer) {
             this._initialize();
 
         }
-        artoolkit.setPattRatio(this.id, 0.5);
+        artoolkit.setPattRatio(this.id, 0.25);
         console.log(artoolkit.getPattRatio(this.id));
     };
 
